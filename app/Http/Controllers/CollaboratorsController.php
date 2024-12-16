@@ -52,6 +52,6 @@ class CollaboratorsController extends Controller
         $task = Collaborators::findOrFail($id);
         $task->delete();
 
-        return redirect()->route('collaborators.index')->with('success', 'Colaborador excluída com sucesso!');
+        return redirect()->route('collaborators.index')->with('success', 'Colaborador excluído com sucesso!');
     }
 }

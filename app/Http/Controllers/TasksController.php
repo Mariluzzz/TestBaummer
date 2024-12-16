@@ -49,11 +49,11 @@ class TasksController extends Controller
             'deadline' => $request->deadline,
             'collaborator_id' => $request->collaborator_id,
             'priority' => $request->priority,
-            'created_at' => now(),
-            'executed_at' => !empty($request->executed_at) ? Carbon::createFromFormat('d/m/Y H:i', $request->executed_at)->format('Y-m-d H:i') : null,
+            'created_at' => \Carbon\Carbon::now('America/Sao_Paulo'),
+            'executed_at' => !empty($request->executed_at) ? $request->executed_at : null,
         ]);
 
-        return redirect()->route('tasks.create')->with('success', 'Tarefa cadastrada com sucesso!');
+        return redirect()->route('tasks.index')->with('success', 'Tarefa cadastrada com sucesso!');
     }
 
     public function edit($id)
@@ -84,7 +84,7 @@ class TasksController extends Controller
         $task = Tasks::findOrFail($id);
         $task->delete();
 
-        return redirect()->route('tasks.index')->with('success', 'Tarefa excluída com sucesso!');
+        return redirect()->route('tasks.index')->with('success', 'Tarefa excluído com sucesso!');
     }
     
 }

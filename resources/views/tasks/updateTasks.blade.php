@@ -22,7 +22,7 @@
 
         <label for="deadline">Data/Hora Prazo Limite</label>
         <div class="input-field">
-            <input type="datetime-local" name="deadline" id="deadline" value="{{ old('deadline', \Carbon\Carbon::parse($task->deadline)->format('Y-m-d H:i')) }}">
+            <input type="datetime-local" name="deadline" id="deadline" value="{{ old('deadline', \Carbon\Carbon::parse($task->deadline)->format('Y-m-d H:i')) }}" min="1900-01-01T00:00" max="2037-12-31T23:59">
             @error('deadline')
                 <span class="helper-text red-text">{{ $message }}</span>
             @enderror
@@ -59,7 +59,7 @@
 
         <label for="executed_at">Data/Hora de Execução</label>
         <div class="input-field">
-            <input type="datetime-local" name="executed_at" id="executed_at" value="{{ old('executed_at', $task->executed_at ? \Carbon\Carbon::parse($task->executed_at)->format('Y-m-d\TH:i') : '') }}">
+            <input type="datetime-local" name="executed_at" id="executed_at" value="{{ old('executed_at', $task->executed_at ? \Carbon\Carbon::parse($task->executed_at)->format('Y-m-d\TH:i') : '') }}" min="1900-01-01T00:00" max="2037-12-31T23:59">
         </div>
 
         <div class="center-align">

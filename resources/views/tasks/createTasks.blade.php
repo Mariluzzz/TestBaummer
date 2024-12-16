@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h2 class="center-align">Cadastro de Tarefa</h2>
+    <h2 class="center-align">Cadastro de Tarefas</h2>
 
     @if ($errors->has('responsavel_id'))
     <span class="red-text">{{ $errors->first('responsavel_id') }}</span>
@@ -18,9 +18,9 @@
             @enderror
         </div>
 
+        <label for="deadline">Data/Hora Prazo Limite</label>
         <div class="input-field">
-            <input type="datetime-local" name="deadline" id="deadline">
-            <label for="deadline">Data/Hora Prazo Limite</label>
+            <input type="datetime-local" name="deadline" id="deadline" min="1900-01-01T00:00" max="2037-12-31T23:59" required>
             @error('deadline')
                 <span class="helper-text red-text">{{ $message }}</span>
             @enderror
@@ -55,9 +55,9 @@
             @enderror
         </div>
 
+        <label for="executed_at">Data/Hora de Execução</label>
         <div class="input-field">
-            <input type="text" name="executed_at" id="executed_at">
-            <label for="executed_at">Data/Hora de Execução</label>
+            <input type="datetime-local" name="executed_at" id="executed_at" min="1900-01-01T00:00" max="2037-12-31T23:59">
         </div>
 
         <div class="center-align">
@@ -79,19 +79,6 @@
         </script>
     @endif
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        flatpickr("#deadline", {
-            enableTime: true,
-            dateFormat: "d/m/Y H:i",
-        });
-        flatpickr("#executed_at", {
-            enableTime: true,
-            dateFormat: "d/m/Y H:i",
-        });
-    });
-</script>
 
 <script>
    document.addEventListener('DOMContentLoaded', function() {

@@ -23,7 +23,7 @@ class RegisterCollaboratorsRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'cpf' => 'required|min:11|min:11|unique:collaborators',
+            'cpf' => 'required|min:11|max:11|unique:collaborators',
             'email' => 'required|email|unique:collaborators,email',
         ];
     }

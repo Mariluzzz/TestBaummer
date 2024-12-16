@@ -33,7 +33,10 @@ class RegisterTasksRequest extends FormRequest
         $deadline = $this->input('deadline');
         $executed_at = $this->input('executed_at');
 
-        $deadline = $this->createDateFromFormat($deadline);
+        if (!empty($deadline)) {
+            $deadline = $this->createDateFromFormat($deadline);
+        }
+        
         if (!empty($executed_at)) {
             $executed_at = $this->createDateFromFormat($executed_at);
         }

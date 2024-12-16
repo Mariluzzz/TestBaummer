@@ -47,8 +47,8 @@
         </script>
     @endif
 
-    <div class="center-align">
-        <p><a href="{{ route('home') }}">Voltar para o início</a></p>
+    <div class="center-align" style="margin-top: 1em;">
+        <button class="btn"><a class="white-text" href="{{ route('collaborators.index') }}">Voltar a lista de colaboradores</button>
     </div>
 </div>
 @endsection

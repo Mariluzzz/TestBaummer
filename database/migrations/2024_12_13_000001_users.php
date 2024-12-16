@@ -20,14 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->timestamps();
         });
-
-        DB::table('users')->insert([
-            'name' => 'Admin',
-            'email' => env('DB_EMAIL_ADMIN'),
-            'password' => Hash::make(env('DB_PASSWORD_ADMIN')),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
     }
 
     /**
